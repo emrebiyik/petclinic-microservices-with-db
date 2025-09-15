@@ -1063,7 +1063,7 @@ git checkout feature/msp-14
       Command:
 ```
 ```bash
-APP_REPO_NAME="ondia-repo/petclinic-app-dev"
+APP_REPO_NAME="clarusway-repo/petclinic-app-dev"
 AWS_REGION="us-east-1"
 
 aws ecr describe-repositories --region ${AWS_REGION} --repository-name ${APP_REPO_NAME} || \
@@ -1080,7 +1080,7 @@ aws ecr create-repository \
 * Prepare a script to create Docker Registry for `dev` on AWS ECR and save it as `create-ecr-docker-registry-for-dev.sh` under `infrastructure` folder.
 
 ``` bash
-APP_REPO_NAME="ondia-repo/petclinic-app-dev"
+APP_REPO_NAME="clarusway-repo/petclinic-app-dev"
 AWS_REGION="us-east-1"
 
 aws ecr describe-repositories --region ${AWS_REGION} --repository-name ${APP_REPO_NAME} || \
@@ -1277,7 +1277,7 @@ output worker-2-ip {
 
 ```bash
 git add .
-git commit -m 'added dev-k8s-terraform for kubernetes infrastructure'
+git commit -m 'added dev-k8s-terraform  for kubernetes infrastructure'
 git push --set-upstream origin feature/msp-15
 git checkout dev
 git merge feature/msp-15
@@ -2492,7 +2492,7 @@ eksctl version
 - Download the Amazon EKS vendor's kubectl binary.
 
 ```bash
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.32.3/2025-04-17/bin/linux/amd64/kubectl
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.4/2025-08-20/bin/linux/amd64/kubectl
 ```
 
 - Apply execute permissions to the binary.
@@ -2550,8 +2550,7 @@ eksctl create cluster -f cluster.yaml
 
 ```bash
 export PATH=$PATH:$HOME/bin
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.2/deploy/static/provider/cloud/deploy.yaml
-
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.13.2/deploy/static/provider/cloud/deploy.yaml
 ```
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
