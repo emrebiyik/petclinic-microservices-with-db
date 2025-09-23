@@ -3006,8 +3006,6 @@ git checkout feature/msp-23
     * Allow SSH protocol (TCP on port 22) to any node IP from a node created using Node Driver.
 
     * Allow HTTP protocol (TCP on port 80) to all IP for getting updates.
-    
-    * Allow HTTPS protocol (TCP on port 443) to `35.160.43.145/32`, `35.167.242.46/32`, `52.33.59.17/32` for catalogs of `git.rancher.io`.
 
     * Allow TCP on port 2376 to any node IP from a node created using Node Driver for Docker machine TLS port.
 
@@ -3190,7 +3188,7 @@ kubectl create namespace cattle-system
 ```bash
 helm install rancher rancher-stable/rancher --version 2.8.1 \
   --namespace cattle-system \
-  --set hostname=rancher.clarusway.us \
+  --set hostname=rancher.emrebiyik.click \
   --set tls=external \
   --set replicas=1 \
   --set global.cattle.psp.enabled=false
@@ -3329,6 +3327,8 @@ nano /home/ec2-user/.m2/settings.xml
 
 ``` bash
 ./mvnw clean
+
+docker run --rm -v $HOME/.m2:/root/.m2 -v `pwd`:/app -w /app maven:3.8-openjdk-11 mvn clean
 ```
 
 - Add distributionManagement element given below to your ``pom.xml`` file after `</dependencyManagement>` line. Include the endpoints to your maven-releases and maven-snapshots repos. Change localhost >>>> Private ip of your server.
@@ -3352,6 +3352,8 @@ nano /home/ec2-user/.m2/settings.xml
 
 ```bash
 ./mvnw clean deploy
+
+docker run --rm -v $HOME/.m2:/root/.m2 -v `pwd`:/app -w /app maven:3.8-openjdk-11 mvn clean deploy
 ```
 
 - Note: if you want to redeploy the same artifact to release repository, you need to set Deployment policy : "Allow redeploy".
